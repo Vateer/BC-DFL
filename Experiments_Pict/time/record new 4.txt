@@ -1,0 +1,22 @@
+################local_test_on_all_clients : 0
+{"training_acc": 0.5619972755578619, "training_loss": 2.059820040279432}{"test_acc": 0.5605752272418939, "test_loss": 2.057213807005747}computing time = 125.587674################local_test_on_all_clients : 5
+{"training_acc": 0.6819538142189933, "training_loss": 1.9571549728006263}{"test_acc": 0.6809116809116809, "test_loss": 1.953311092412677}computing time = 518.5638236################local_test_on_all_clients : 10
+{"training_acc": 0.7202419564089257, "training_loss": 1.905672009019389}{"test_acc": 0.7171347171347171, "test_loss": 1.901988097324638}computing time = 915.7925812################local_test_on_all_clients : 15
+{"training_acc": 0.6952516865594188, "training_loss": 1.9104729745272193}{"test_acc": 0.6900013566680233, "test_loss": 1.9079993360159986}computing time = 1324.3997214################local_test_on_all_clients : 20
+{"training_acc": 0.6938083809029579, "training_loss": 1.8921597958709147}{"test_acc": 0.6905440238773572, "test_loss": 1.887627681646268}computing time = 1728.4647662################local_test_on_all_clients : 25
+{"training_acc": 0.7819473274519979, "training_loss": 1.8297117161291463}{"test_acc": 0.774386107719441, "test_loss": 1.825987727440547}computing time = 2138.0524079################local_test_on_all_clients : 30
+{"training_acc": 0.7848177218474313, "training_loss": 1.827473289253539}{"test_acc": 0.7827974494641161, "test_loss": 1.8255127051390587}computing time = 2542.8373229################local_test_on_all_clients : 35
+{"training_acc": 0.7994453814218994, "training_loss": 1.8369687908615668}{"test_acc": 0.798670465337132, "test_loss": 1.832961767584413}computing time = 2934.71654################local_test_on_all_clients : 40
+{"training_acc": 0.8002237934613389, "training_loss": 1.8192044036490935}{"test_acc": 0.798670465337132, "test_loss": 1.8163575389268456}computing time = 3344.3477842################local_test_on_all_clients : 45
+{"training_acc": 0.802234691229891, "training_loss": 1.803305643339524}{"test_acc": 0.8012481345814679, "test_loss": 1.8015865555224886}computing time = 3789.704737################local_test_on_all_clients : 50
+{"training_acc": 0.7843474312402698, "training_loss": 1.811266360925264}{"test_acc": 0.7872744539411206, "test_loss": 1.8101699113878171}computing time = 4207.354831################local_test_on_all_clients : 55
+{"training_acc": 0.7819311105345096, "training_loss": 1.801879543186657}{"test_acc": 0.7840184506851173, "test_loss": 1.8015034014229987}computing time = 4626.407396################local_test_on_all_clients : 60
+{"training_acc": 0.7785742086144266, "training_loss": 1.7957898308815397}{"test_acc": 0.7819834486501153, "test_loss": 1.7952412065730587}computing time = 5046.8347272################local_test_on_all_clients : 65
+{"training_acc": 0.7684062013492475, "training_loss": 1.7924894782166965}{"test_acc": 0.7738434405101072, "test_loss": 1.7907438873516917}computing time = 5459.4715115################local_test_on_all_clients : 70
+{"training_acc": 0.7801310326933056, "training_loss": 1.7832620828999686}{"test_acc": 0.7775064441731109, "test_loss": 1.782590571712597}computing time = 5855.4578991################local_test_on_all_clients : 75
+{"training_acc": 0.8049104826154645, "training_loss": 1.7797666825199443}{"test_acc": 0.8020621353954688, "test_loss": 1.7802246719732195}computing time = 6275.1471136################local_test_on_all_clients : 80
+{"training_acc": 0.7997210690192008, "training_loss": 1.7817698645259998}{"test_acc": 0.7955501288834622, "test_loss": 1.7824695908445918}computing time = 6700.0936303################local_test_on_all_clients : 85
+{"training_acc": 0.7940775817332641, "training_loss": 1.7810350038211737}{"test_acc": 0.7951431284764618, "test_loss": 1.7827334464316031}computing time = 7104.4730033################local_test_on_all_clients : 90
+{"training_acc": 0.8230085625324338, "training_loss": 1.7608737132121042}{"test_acc": 0.8245828245828246, "test_loss": 1.762088868547175}computing time = 7524.2189687################local_test_on_all_clients : 95
+{"training_acc": 0.8093539180072652, "training_loss": 1.7633906340735932}{"test_acc": 0.8054538054538054, "test_loss": 1.7631032568129799}computing time = 7942.2040362################local_test_on_all_clients : 99
+{"training_acc": 0.8153703943954334, "training_loss": 1.7557228086124788}{"test_acc": 0.8122371455704789, "test_loss": 1.7561806411727638}computing time = 8289.0533534

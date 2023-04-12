@@ -1,0 +1,24 @@
+candidate pxunking
+
+
+uav
+drone
+Quadrotor
+
+stream:conf/pldi: UAV
+stream:journals/scirobotics: UAV
+
+naive method
+
+
+
+  Paper Review Acceptance Form
+Thank you for accepting to review the paper "Research on improved mask wearing detection algorithm based on MobileNet"
+
+You can now read our Guidelines for Reviewer and review the paper from the following web-page: http://www.inderscience.com/papers/admin/reviewer/requestsubmit.php?id=352415
+
+Thank you for your kind and valuable co-operation.
+
+Please keep the "Article Review Request" email we have sent you. It contains direct links to the submitted paper and the evaluation form:
+- http://www.inderscience.com/doc.php?word=352415_379042
+- http://www.inderscience.com/eval.php?form=352415_379042
