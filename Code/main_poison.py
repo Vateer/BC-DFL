@@ -38,7 +38,10 @@ class Client:
         for idx in range(fault_training_data.__len__()):
             for idx2 in range(fault_training_data[idx][1].__len__()):
                 # fault_training_data[idx][1][idx2] = 9 - fault_training_data[idx][1][idx2]
-                fault_training_data[idx][1][idx2] = random.randint(0,9)
+                temp = fault_training_data[idx][1][idx2]
+                while temp == fault_training_data[idx][1][idx2]:
+                    temp = random.randint(0,9)
+                fault_training_data[idx][1][idx2] = temp
         # for idx in range(fault_training_data[1][1].__len__()):
         #     fault_training_data[1][1][idx] = 9 - fault_training_data[1][1][idx]
         self.local_training_data = fault_training_data
@@ -162,7 +165,7 @@ class BCManager():
         # self.handler.append(myEth3)
         # self.handler.append(myEth4)
         # myEth2 = MyEth(8546)
-        names, abis, addresses = blockchain.MyTools.load_contract_info(r"F:\Code\research\Fedml\MyCode\blockchain_test\contracts", True)
+        names, abis, addresses = blockchain.MyTools.load_contract_info(r".\blockchain_test\contracts", True)
         for i in range(names.__len__()):
             for handle in self.handler:
                 handle.load_contract(names[i],abis[i],addresses[i])
@@ -228,8 +231,11 @@ class MyFedAvg():
         # mlops.log_training_status(mlops.ClientConstants.MSG_MLOPS_CLIENT_STATUS_TRAINING)
         # mlops.log_aggregation_status(mlops.ServerConstants.MSG_MLOPS_SERVER_STATUS_RUNNING)
         # mlops.log_round_info(self.args.comm_round, -1)
-        delta = 51
+        delta = 40
         acc_datas = []
+        th = int(args.client_num_in_total * 0.2)
+        random.seed(int(time.time()))
+        poison_client = random.sample(range(0,args.client_num_in_total), th)
         for round_idx in range(self.args.comm_round):
 
             print("################Communication round : {}".format(round_idx))
@@ -243,8 +249,7 @@ class MyFedAvg():
             client_indexes = self._client_sampling(
                 round_idx, self.args.client_num_in_total, self.args.client_num_per_round
             )
-            print("client_indexes = " + str(client_indexes))
-            
+            # print("client_indexes = " + str(client_indexes))
             for idx, client in enumerate(self.client_list):
                 # update dataset
                 client_idx = client_indexes[idx]
@@ -263,16 +268,15 @@ class MyFedAvg():
                 #     print("===================client {} poisoning===================".format(client_idx))
                 #     client.poisoning()
                 temp = args.epochs
-                # if client_idx < 200 and random.randint(1,10) <= 5:
-                #     print("===================client {} poisoning===================".format(client_idx))
-                #     client.poisoning()
-                #     args.epochs=20+int(round_idx/2)
-
-
+                
+                if client_idx in poison_client and random.randint(1,10) <= 10:
+                    print("===================client {} poisoning===================".format(client_idx))
+                    client.poisoning()
+                    args.epochs=temp+int(round_idx/12)
                 # client.poisoning()
                 # train on new dataset
                 # mlops.event("train", event_started=True, event_value="{}_{}".format(str(round_idx), str(idx)))
-                print("client {} is training".format(client_idx))
+                # print("client {} is training".format(client_idx))
                 w = client.train(copy.deepcopy(w_global))
                 args.epochs = temp
                 # mlops.event("train", event_started=False, event_value="{}_{}".format(str(round_idx), str(idx)))
@@ -316,22 +320,21 @@ class MyFedAvg():
 
             w_locals2 = [] 
             if delta > 2:
-                delta -= 1
+                delta -= 0.5
             for acc, idx in acc_locals:
                 loss = ave_acc - acc
                 loss *= 100
                 flag = 0
-                if loss > delta:
+                if loss >= 0:
                     if loss > delta + 1:
-                        print("maliculous client catch!")
+                        print("maliculous client {} catch!".format(client_indexes[idx]))
                         self.rewards[client_indexes[idx]] -= math.exp(0.15*loss)
                         flag = 1
                     else:
-                        self.rewards[client_indexes[idx]] += loss
                         self.rewards[client_indexes[idx]] += 1
                 else:
                     loss = -loss
-                    if loss > delta + 3:
+                    if loss > delta + 1:
                         self.rewards[client_indexes[idx]] += math.exp(0.10*loss)
                         self.rewards[client_indexes[idx]] += 1
                     else:
@@ -339,7 +342,7 @@ class MyFedAvg():
                         self.rewards[client_indexes[idx]] += 1
                 if flag == 0:
                     w_locals2.append(w_locals[idx])
-            # w_locals = w_locals2
+            w_locals = w_locals2
             # update global weights
             # mlops.event("agg", event_started=True, event_value=str(round_idx))
             # querry="null"
@@ -389,13 +392,16 @@ class MyFedAvg():
 
             # mlops.log_round_info(self.args.comm_round, round_idx)
             bad = 0
-            for i in range(0,200):
-                bad += self.rewards[i]
+            bad_len = len(poison_client)
             good = 0
-            for i in range(200,500):
-                good += self.rewards[i]
-            print("good = {}, bad = {}".format(good/300.0,bad/200.0))
-            acc_datas.append("good = {}, bad = {}".format(good/300.0,bad/200.0))
+            good_len = args.client_num_in_total - bad_len
+            for i in range(args.client_num_in_total):
+                if i in poison_client:
+                    bad += self.rewards[i]
+                else:
+                    good += self.rewards[i]
+            print("good = {}, bad = {}".format(good/good_len,bad/bad_len))
+            acc_datas.append("good = {}, bad = {}".format(good/good_len,bad/bad_len))
         with open ("./record.txt",'a') as f:
             for acc_data in acc_datas:
                 print(acc_data)
@@ -408,7 +414,7 @@ class MyFedAvg():
             client_indexes = [client_index for client_index in range(client_num_in_total)]
         else:
             num_clients = min(client_num_per_round, client_num_in_total)
-            # np.random.seed(round_idx)  # make sure for each comparison, we are selecting the same clients each round
+            np.random.seed(round_idx)  # make sure for each comparison, we are selecting the same clients each round
             client_indexes = np.random.choice(range(client_num_in_total), num_clients, replace=False)
         print("client_indexes = %s" % str(client_indexes))
         return client_indexes 
