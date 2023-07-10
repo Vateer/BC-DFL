@@ -1,0 +1,18 @@
+################local_test_on_all_clients : 0
+{"training_acc": 0.27644979242345613, "training_loss": 2.2352364121452477}{"test_acc": 0.2778456111789445, "test_loss": 2.233941973395885}computing time = 86.4777################local_test_on_all_clients : 5
+{"training_acc": 0.4894427867151012, "training_loss": 2.0735887834868967}{"test_acc": 0.48378781712115043, "test_loss": 2.070976095063087}computing time = 319.8407226################local_test_on_all_clients : 10
+{"training_acc": 0.5847009600415153, "training_loss": 1.9726484768695793}{"test_acc": 0.5807895807895808, "test_loss": 1.9691920685098576}computing time = 549.5344677################local_test_on_all_clients : 15
+{"training_acc": 0.6797320965230929, "training_loss": 1.9293091648626062}{"test_acc": 0.6725003391670058, "test_loss": 1.9260282148711314}computing time = 783.1008812################local_test_on_all_clients : 20
+{"training_acc": 0.6586501037882719, "training_loss": 1.9207041451604057}{"test_acc": 0.654320987654321, "test_loss": 1.9164345557970102}computing time = 1015.3383426################local_test_on_all_clients : 25
+{"training_acc": 0.7569084068500259, "training_loss": 1.873621960418501}{"test_acc": 0.7541717541717542, "test_loss": 1.8696647742243866}computing time = 1247.8836965################local_test_on_all_clients : 30
+{"training_acc": 0.7574435651271406, "training_loss": 1.8667885653005714}{"test_acc": 0.7548500881834215, "test_loss": 1.8643324678068067}computing time = 1485.0521292################local_test_on_all_clients : 35
+{"training_acc": 0.7331992734820966, "training_loss": 1.8932027167350163}{"test_acc": 0.7346357346357346, "test_loss": 1.8895045089327065}computing time = 1726.300155################local_test_on_all_clients : 40
+{"training_acc": 0.7640762843798651, "training_loss": 1.8783222828147383}{"test_acc": 0.7625830959164293, "test_loss": 1.8749598925674225}computing time = 1954.9736696################local_test_on_all_clients : 45
+{"training_acc": 0.7840879605604567, "training_loss": 1.8655291160614025}{"test_acc": 0.7846967846967847, "test_loss": 1.8625241187611488}computing time = 2205.8989602################local_test_on_all_clients : 50
+{"training_acc": 0.7578327711468604, "training_loss": 1.850214604087286}{"test_acc": 0.7575634242300909, "test_loss": 1.8489970990589686}computing time = 2449.5294067################local_test_on_all_clients : 55
+{"training_acc": 0.7770660352880124, "training_loss": 1.8369716855629188}{"test_acc": 0.7772351105684439, "test_loss": 1.8358667262970974}computing time = 2690.7879566################local_test_on_all_clients : 60
+{"training_acc": 0.782352750389206, "training_loss": 1.8342400649509314}{"test_acc": 0.7829331162664496, "test_loss": 1.8331723027694438}computing time = 2932.3664903################local_test_on_all_clients : 65
+{"training_acc": 0.7894071094966268, "training_loss": 1.8283926698678383}{"test_acc": 0.7882241215574549, "test_loss": 1.8273101999613797}computing time = 3191.5436659################local_test_on_all_clients : 70
+{"training_acc": 0.7979047742605085, "training_loss": 1.819459899322366}{"test_acc": 0.798941798941799, "test_loss": 1.8191927683885507}computing time = 3432.7025078################local_test_on_all_clients : 75
+{"training_acc": 0.7721523092890503, "training_loss": 1.830752640742215}{"test_acc": 0.7728937728937729, "test_loss": 1.8308340958121867}computing time = 3694.7557743################local_test_on_all_clients : 80
+{"training_acc": 0.7835852361183187, "training_loss": 1.8238401592926126}{"test_acc": 0.7825261158594492, "test_loss": 1.8237816419939128}computing time = 3943.3320823
